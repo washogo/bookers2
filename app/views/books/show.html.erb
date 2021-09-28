@@ -1,7 +1,7 @@
 <p id="notice"></p>
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <%=render partial: "users/leftside",locals: {user:@user,book:@book}%>
+    <%=render partial: "users/leftside",locals: {user:@user}%>
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table class="table">
@@ -18,10 +18,10 @@
             <td><%=@book.body%></td>
             <%if@book.user==current_user%>
             <td>
-              <a class="btn btn-sm btn-success" href="/books/#{:id}/edit">Edit</a>
+              <%=link_to "Edit",edit_book_path(@book),class:"btn btn-sm btn-success"%>
             </td>
             <td>
-              <button class="btn btn-sm btn-danger"><%=link_to "Destroy",books_path(@book),method: :delete%></button>
+              <%=link_to "Destroy",books_path(@book),method: :delete,class:"btn btn-sm btn-danger"%>
             </td>
             <%end%>
           </tr>
